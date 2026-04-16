@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akarsh Raj — CSE Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg:      '#050a10',
+            surface: '#0c1520',
+            card:    '#101d2c',
+            border:  '#1a3048',
+            accent:  '#00d4ff',
+            accent2: '#00ff9d',
+            muted:   '#4a7090',
+            text:    '#c8e0f0',
+          },
+          fontFamily: {
+            display: ['"Space Mono"', 'monospace'],
+            body:    ['"DM Sans"', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body class="bg-bg text-text font-body antialiased overflow-x-hidden">
+
+  <!-- ═══════════════ NOISE OVERLAY ═══════════════ -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- ═══════════════ GRID BACKDROP ═══════════════ -->
+  <div class="grid-bg" aria-hidden="true"></div>
+
+  <!-- ═══════════════ NAV ═══════════════ -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#hero" class="font-display text-accent text-lg tracking-widest hover:text-accent2 transition-colors duration-200">
+        AR<span class="text-muted">.dev</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <ul class="hidden md:flex items-center gap-8 font-display text-xs tracking-widest uppercase">
+        <li><a href="#about"   class="nav-link text-muted hover:text-accent transition-colors duration-200">About</a></li>
+        <li><a href="#skills"  class="nav-link text-muted hover:text-accent transition-colors duration-200">Skills</a></li>
+        <li><a href="#projects" class="nav-link text-muted hover:text-accent transition-colors duration-200">Projects</a></li>
+        <li><a href="#contact" class="px-4 py-2 border border-accent text-accent hover:bg-accent hover:text-bg transition-all duration-200">Contact</a></li>
+      </ul>
+
+      <!-- Mobile hamburger -->
+      <button id="menu-btn" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle menu">
+        <span class="hamburger-line w-6 h-0.5 bg-accent transition-all duration-300"></span>
+        <span class="hamburger-line w-4 h-0.5 bg-accent transition-all duration-300"></span>
+        <span class="hamburger-line w-6 h-0.5 bg-accent transition-all duration-300"></span>
+      </button>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-surface border-t border-border px-6 py-6">
+      <ul class="flex flex-col gap-5 font-display text-xs tracking-widest uppercase">
+        <li><a href="#about"    class="mobile-nav-link text-muted hover:text-accent transition-colors">About</a></li>
+        <li><a href="#skills"   class="mobile-nav-link text-muted hover:text-accent transition-colors">Skills</a></li>
+        <li><a href="#projects" class="mobile-nav-link text-muted hover:text-accent transition-colors">Projects</a></li>
+        <li><a href="#contact"  class="mobile-nav-link text-muted hover:text-accent transition-colors">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ═══════════════ HERO ═══════════════ -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center px-6 pt-24">
+      <!-- Radial glow -->
+      <div class="hero-glow" aria-hidden="true"></div>
+
+      <div class="max-w-5xl w-full relative z-10">
+        <!-- Eyebrow -->
+        <p class="font-display text-xs tracking-[0.3em] text-accent2 uppercase mb-6 fade-up" style="animation-delay:.1s">
+          &gt; Hello, World. I'm
+        </p>
+
+        <!-- Name -->
+        <h1 class="font-display text-5xl sm:text-7xl md:text-8xl font-bold leading-none tracking-tight text-white mb-4 fade-up" style="animation-delay:.2s">
+          Akarsh<br/>
+          <span class="text-stroke">Raj</span>
+        </h1>
+
+        <!-- Typing tagline -->
+        <div class="flex items-center gap-3 mb-8 fade-up" style="animation-delay:.35s">
+          <span class="font-display text-sm sm:text-base text-muted tracking-wide">// </span>
+          <span id="typed-text" class="font-display text-sm sm:text-base text-accent tracking-wide"></span>
+          <span id="cursor" class="font-display text-accent text-xl animate-pulse">_</span>
+        </div>
+
+        <!-- Bio -->
+        <p class="max-w-xl text-base sm:text-lg text-muted leading-relaxed mb-10 fade-up" style="animation-delay:.45s">
+          B.Tech Computer Science &amp; Engineering student bridging the gap between
+          <span class="text-accent2">software analytics</span> and
+          <span class="text-accent">hardware engineering</span> — building systems that sense, compute, and communicate.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap gap-4 fade-up" style="animation-delay:.55s">
+          <a href="#projects" class="btn-primary px-6 py-3 font-display text-xs tracking-widest uppercase">
+            View Projects
+          </a>
+          <a href="#contact" class="btn-ghost px-6 py-3 font-display text-xs tracking-widest uppercase">
+            Get In Touch
+          </a>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-0 hidden md:flex items-center gap-3 fade-up" style="animation-delay:.7s">
+          <div class="scroll-dot"></div>
+          <span class="font-display text-[10px] tracking-[0.25em] text-muted uppercase">Scroll</span>
+        </div>
+      </div>
+
+      <!-- Decorative corner frame -->
+      <div class="corner-frame corner-tl" aria-hidden="true"></div>
+      <div class="corner-frame corner-br" aria-hidden="true"></div>
+    </section>
+
+    <!-- ═══════════════ ABOUT ═══════════════ -->
+    <section id="about" class="py-28 px-6">
+      <div class="max-w-6xl mx-auto">
+        <div class="section-label">01 // About</div>
+        <div class="grid md:grid-cols-2 gap-16 items-center mt-10">
+          <!-- Text -->
+          <div>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-6 leading-tight">
+              Engineering where<br/>
+              <span class="text-accent">bits meet atoms.</span>
+            </h2>
+            <p class="text-muted leading-relaxed mb-5">
+              I'm a Computer Science &amp; Engineering student with a passion for building end-to-end
+              systems that operate at the intersection of software intelligence and physical hardware.
+              From writing sensor firmware on microcontrollers to transforming raw data into
+              insightful dashboards, I pursue the full stack of a problem.
+            </p>
+            <p class="text-muted leading-relaxed">
+              Currently exploring biofeedback systems, IoT architectures, and data analytics
+              pipelines — always looking for the next challenge that demands both a soldering iron
+              and a Python script.
+            </p>
+          </div>
+
+          <!-- Stats grid -->
+          <div class="grid grid-cols-2 gap-4">
+            <div class="stat-card p-6 border border-border bg-card">
+              <span class="font-display text-4xl text-accent font-bold">2+</span>
+              <p class="text-muted text-sm mt-2 font-display tracking-wide uppercase">Projects Built</p>
+            </div>
+            <div class="stat-card p-6 border border-border bg-card">
+              <span class="font-display text-4xl text-accent2 font-bold">5+</span>
+              <p class="text-muted text-sm mt-2 font-display tracking-wide uppercase">Technologies</p>
+            </div>
+            <div class="stat-card p-6 border border-border bg-card col-span-2">
+              <span class="font-display text-4xl text-white font-bold">HW+SW</span>
+              <p class="text-muted text-sm mt-2 font-display tracking-wide uppercase">Full-stack hardware &amp; software thinker</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ SKILLS ═══════════════ -->
+    <section id="skills" class="py-28 px-6 bg-surface relative">
+      <div class="scan-line" aria-hidden="true"></div>
+      <div class="max-w-6xl mx-auto">
+        <div class="section-label">02 // Skills</div>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-4 mb-14">
+          Technical <span class="text-accent">Arsenal</span>
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-6">
+
+          <!-- Software & Analytics -->
+          <div class="skill-panel p-8 border border-border bg-card relative overflow-hidden">
+            <div class="panel-accent-line bg-accent"></div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-8 h-8 flex items-center justify-center border border-accent text-accent font-display text-xs">&lt;/&gt;</div>
+              <h3 class="font-display text-sm tracking-widest uppercase text-accent">Software &amp; Analytics</h3>
+            </div>
+            <div class="flex flex-col gap-5">
+              <div class="skill-bar-item">
+                <div class="flex justify-between mb-2">
+                  <span class="font-display text-xs tracking-widest text-white uppercase">Python</span>
+                  <span class="font-display text-xs text-muted">90%</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill bg-accent" data-width="90"></div>
+                </div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="flex justify-between mb-2">
+                  <span class="font-display text-xs tracking-widest text-white uppercase">C</span>
+                  <span class="font-display text-xs text-muted">80%</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill bg-accent" data-width="80"></div>
+                </div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="flex justify-between mb-2">
+                  <span class="font-display text-xs tracking-widest text-white uppercase">Tableau</span>
+                  <span class="font-display text-xs text-muted">75%</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill bg-accent" data-width="75"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hardware & IoT -->
+          <div class="skill-panel p-8 border border-border bg-card relative overflow-hidden">
+            <div class="panel-accent-line bg-accent2"></div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-8 h-8 flex items-center justify-center border border-accent2 text-accent2 font-display text-xs">⚡</div>
+              <h3 class="font-display text-sm tracking-widest uppercase text-accent2">Hardware &amp; IoT</h3>
+            </div>
+            <div class="flex flex-col gap-5">
+              <div class="skill-bar-item">
+                <div class="flex justify-between mb-2">
+                  <span class="font-display text-xs tracking-widest text-white uppercase">Microcontrollers</span>
+                  <span class="font-display text-xs text-muted">85%</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill bg-accent2" data-width="85"></div>
+                </div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="flex justify-between mb-2">
+                  <span class="font-display text-xs tracking-widest text-white uppercase">Sensor Integration</span>
+                  <span class="font-display text-xs text-muted">80%</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill bg-accent2" data-width="80"></div>
+                </div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="flex justify-between mb-2">
+                  <span class="font-display text-xs tracking-widest text-white uppercase">Arduino (AVR/ARM)</span>
+                  <span class="font-display text-xs text-muted">88%</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill bg-accent2" data-width="88"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Tech Tags -->
+        <div class="mt-8 flex flex-wrap gap-3">
+          <span class="tag">Arduino Uno R4</span>
+          <span class="tag">Python</span>
+          <span class="tag">Tableau</span>
+          <span class="tag">C / C++</span>
+          <span class="tag">Biofeedback Systems</span>
+          <span class="tag">Serial Comms</span>
+          <span class="tag">Data Pipelines</span>
+          <span class="tag">I²C / SPI</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ PROJECTS ═══════════════ -->
+    <section id="projects" class="py-28 px-6">
+      <div class="max-w-6xl mx-auto">
+        <div class="section-label">03 // Projects</div>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-4 mb-14">
+          Selected <span class="text-accent">Work</span>
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-8">
+
+          <!-- Project 1 -->
+          <article class="project-card bg-card border border-border p-8 relative overflow-hidden group">
+            <div class="project-hover-glow"></div>
+            <div class="relative z-10">
+              <div class="flex items-start justify-between mb-4">
+                <span class="font-display text-[10px] tracking-[0.25em] text-accent2 uppercase">Hardware · IoT · Biofeedback</span>
+                <span class="font-display text-[10px] text-muted tracking-widest">01</span>
+              </div>
+
+              <!-- Icon -->
+              <div class="w-14 h-14 mb-6 flex items-center justify-center bg-surface border border-border text-2xl">
+                💓
+              </div>
+
+              <h3 class="font-display text-xl font-bold text-white mb-3 leading-snug">Smart Exam<br/>Stress Monitor</h3>
+              <p class="text-muted text-sm leading-relaxed mb-6">
+                A portable biofeedback system engineered to measure <span class="text-accent2">heart rate</span> and
+                <span class="text-accent2">body temperature</span> under high-stress exam conditions.
+                Built around the <span class="text-white">Arduino Uno R4 Minima</span>, the device captures
+                real-time physiological signals via integrated sensors, enabling early detection
+                of stress indicators through threshold-based alerting and serial data logging.
+              </p>
+
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="chip">Arduino Uno R4</span>
+                <span class="chip">C / C++</span>
+                <span class="chip">Pulse Sensor</span>
+                <span class="chip">DS18B20</span>
+                <span class="chip">Serial Monitor</span>
+              </div>
+
+              <div class="flex items-center gap-2 text-accent group-hover:gap-4 transition-all duration-300">
+                <span class="font-display text-xs tracking-widest uppercase">View Details</span>
+                <span>→</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card bg-card border border-border p-8 relative overflow-hidden group">
+            <div class="project-hover-glow project-hover-glow--2"></div>
+            <div class="relative z-10">
+              <div class="flex items-start justify-between mb-4">
+                <span class="font-display text-[10px] tracking-[0.25em] text-accent uppercase">Analytics · Visualization · Python</span>
+                <span class="font-display text-[10px] text-muted tracking-widest">02</span>
+              </div>
+
+              <!-- Icon -->
+              <div class="w-14 h-14 mb-6 flex items-center justify-center bg-surface border border-border text-2xl">
+                📊
+              </div>
+
+              <h3 class="font-display text-xl font-bold text-white mb-3 leading-snug">Data Visualization<br/>Dashboard</h3>
+              <p class="text-muted text-sm leading-relaxed mb-6">
+                An end-to-end analytics pipeline leveraging <span class="text-accent">Python</span> (Pandas + NumPy)
+                for ETL processing and <span class="text-accent">Tableau</span> for interactive dashboard design.
+                The project ingests multi-source CSV datasets, performs statistical analysis and
+                correlation mapping, then surfaces KPI insights through drill-down charts,
+                trend lines, and heatmap visualizations — enabling data-driven decision-making
+                at a glance.
+              </p>
+
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="chip">Python</span>
+                <span class="chip">Pandas</span>
+                <span class="chip">NumPy</span>
+                <span class="chip">Tableau</span>
+                <span class="chip">ETL Pipeline</span>
+              </div>
+
+              <div class="flex items-center gap-2 text-accent group-hover:gap-4 transition-all duration-300">
+                <span class="font-display text-xs tracking-widest uppercase">View Details</span>
+                <span>→</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ CONTACT ═══════════════ -->
+    <section id="contact" class="py-28 px-6 bg-surface relative">
+      <div class="scan-line scan-line--alt" aria-hidden="true"></div>
+      <div class="max-w-4xl mx-auto">
+        <div class="section-label">04 // Contact</div>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-4 mb-4">
+          Let's <span class="text-accent">Connect</span>
+        </h2>
+        <p class="text-muted mb-12 max-w-xl">
+          Whether you have a project in mind, a collaboration proposal, or just want to talk
+          hardware — my inbox is open.
+        </p>
+
+        <form id="contact-form" action="#" method="POST" class="grid md:grid-cols-2 gap-6">
+          <!-- Name -->
+          <div class="form-group flex flex-col gap-2">
+            <label for="name" class="font-display text-[10px] tracking-[0.25em] uppercase text-muted">Name</label>
+            <input
+              id="name" name="name" type="text" required
+              placeholder="Your full name"
+              class="form-input bg-card border border-border text-text font-body px-4 py-3 text-sm placeholder-muted/50 focus:outline-none focus:border-accent transition-colors duration-200"
+            />
+          </div>
+
+          <!-- Email -->
+          <div class="form-group flex flex-col gap-2">
+            <label for="email" class="font-display text-[10px] tracking-[0.25em] uppercase text-muted">Email</label>
+            <input
+              id="email" name="email" type="email" required
+              placeholder="your@email.com"
+              class="form-input bg-card border border-border text-text font-body px-4 py-3 text-sm placeholder-muted/50 focus:outline-none focus:border-accent transition-colors duration-200"
+            />
+          </div>
+
+          <!-- Subject -->
+          <div class="form-group flex flex-col gap-2 md:col-span-2">
+            <label for="subject" class="font-display text-[10px] tracking-[0.25em] uppercase text-muted">Subject</label>
+            <input
+              id="subject" name="subject" type="text"
+              placeholder="What's this about?"
+              class="form-input bg-card border border-border text-text font-body px-4 py-3 text-sm placeholder-muted/50 focus:outline-none focus:border-accent transition-colors duration-200"
+            />
+          </div>
+
+          <!-- Message -->
+          <div class="form-group flex flex-col gap-2 md:col-span-2">
+            <label for="message" class="font-display text-[10px] tracking-[0.25em] uppercase text-muted">Message</label>
+            <textarea
+              id="message" name="message" rows="6" required
+              placeholder="Tell me about your project or idea..."
+              class="form-input bg-card border border-border text-text font-body px-4 py-3 text-sm placeholder-muted/50 focus:outline-none focus:border-accent transition-colors duration-200 resize-none"
+            ></textarea>
+          </div>
+
+          <!-- Submit -->
+          <div class="md:col-span-2 flex items-center gap-6">
+            <button type="submit" class="btn-primary px-8 py-3 font-display text-xs tracking-widest uppercase">
+              Send Message →
+            </button>
+            <span id="form-status" class="font-display text-xs text-accent hidden">
+              ✓ Message sent!
+            </span>
+          </div>
+        </form>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="border-t border-border py-8 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <span class="font-display text-xs text-muted tracking-widest">© 2025 Akarsh Raj. All rights reserved.</span>
+      <span class="font-display text-xs text-muted tracking-widest">Built with &lt;/&gt; &amp; ⚡</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
